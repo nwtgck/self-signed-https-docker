@@ -1,9 +1,9 @@
 #! /bin/sh
 
 # Set default value if not set
-SERVER_HTTP_PORT=${SERVER_HTTP_PORT:-"80"}
-SERVER_HTTPS_PORT=${SERVER_HTTPS_PORT:-"443"}
-TARGET_PORT=${TARGET_PORT:-"80"}
+export SERVER_HTTP_PORT=${SERVER_HTTP_PORT-"80"}
+export SERVER_HTTPS_PORT=${SERVER_HTTPS_PORT-"443"}
+export TARGET_PORT=${TARGET_PORT-"80"}
 
 # Assign environment variables
 cat /etc/nginx/conf.d/default.conf | envsubst  '$SERVER_HTTP_PORT $SERVER_HTTPS_PORT $TARGET_HOST $TARGET_PORT' > /etc/nginx/conf.d/default.conf
