@@ -1,7 +1,12 @@
 #! /bin/sh
 
+# Set default value if not set
+SERVER_HTTP_PORT=${SERVER_HTTP_PORT:-"80"}
+SERVER_HTTPS_PORT=${SERVER_HTTPS_PORT:-"443"}
+TARGET_PORT=${TARGET_PORT:-"80"}
+
 # Assign environment variables
-cat /etc/nginx/conf.d/default.conf | envsubst  '$TARGET_HOST $TARGET_PORT' > /etc/nginx/conf.d/default.conf
+cat /etc/nginx/conf.d/default.conf | envsubst  '$SERVER_HTTP_PORT $SERVER_HTTPS_PORT $TARGET_HOST $TARGET_PORT' > /etc/nginx/conf.d/default.conf
 
 # If server.key or server.crt doesn't exist.
 mkdir -p /ssl_certs
@@ -12,6 +17,8 @@ if [ ! -e /ssl_certs/server.key ] || [ ! -e /ssl_certs/server.crt ]; then
   chown root:root server.key  server.csr server.crt
   cd /
 fi
+
+echo "Running Self-signed HTTPS ..."
 
 # Start Nginx
 nginx -g "daemon off;"
