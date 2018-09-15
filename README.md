@@ -32,6 +32,8 @@ services:
     environment:
       TARGET_HOST: ghost
       TARGET_PORT: 2368
+    volumes:
+      - ./docker_volumes/ssl_certs:/ssl_certs
 
   ghost:
     image: ghost
@@ -40,3 +42,11 @@ services:
       - "2368"
 ``` 
 (from: [compose-examples/ghost/docker-compose.yml](compose-examples/ghost/docker-compose.yml))
+
+### Data Persistence
+
+The following files are located at `./docker_volumes/ssl_cert` in the above example.
+
+* `server.key`
+* `server.csr`
+* `server.crt`

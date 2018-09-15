@@ -11,6 +11,8 @@ services:
     environment:
       TARGET_HOST: ghost
       TARGET_PORT: 2368
+    volumes:
+      - ./docker_volumes/ssl_certs:/ssl_certs
 
   ghost:
     image: ghost
