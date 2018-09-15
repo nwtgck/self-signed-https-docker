@@ -6,7 +6,8 @@ export SERVER_HTTPS_PORT=${SERVER_HTTPS_PORT-"443"}
 export TARGET_PORT=${TARGET_PORT-"80"}
 
 # Assign environment variables
-cat /etc/nginx/conf.d/default.conf | envsubst  '$SERVER_HTTP_PORT $SERVER_HTTPS_PORT $TARGET_HOST $TARGET_PORT' > /etc/nginx/conf.d/default.conf
+cat /etc/nginx/conf.d/default.conf | envsubst  '$SERVER_HTTP_PORT $SERVER_HTTPS_PORT $TARGET_HOST $TARGET_PORT' > /tmp/filled.conf
+mv /tmp/filled.conf /etc/nginx/conf.d/default.conf
 
 # If server.key or server.crt doesn't exist.
 mkdir -p /ssl_certs
