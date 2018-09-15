@@ -50,3 +50,12 @@ The following files are located at `./docker_volumes/ssl_cert` in the above exam
 * `server.key`
 * `server.csr`
 * `server.crt`
+
+## Environment Variables
+
+| name              | description                            | required or default value |
+|-------------------|----------------------------------------|---------------------------|
+| TARGET_HOST       | Host of destination                    | REQUIRED                  |
+| TARGET_PORT       | HTTP port of destination               | `80`                      |
+| SERVER_HTTP_PORT  | HTTP port of Self-signed HTTPS server  | `80`                      |
+| SERVER_HTTPS_PORT | HTTPS port of Self-signed HTTPS server | `443`                     |
