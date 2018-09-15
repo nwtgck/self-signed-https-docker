@@ -1,5 +1,9 @@
 # self-signed-https
+[![Docker Automated build](https://img.shields.io/docker/automated/nwtgck/self-signed-https.svg)](https://hub.docker.com/r/nwtgck/self-signed-https/) [![](https://images.microbadger.com/badges/image/nwtgck/self-signed-https.svg)](https://microbadger.com/images/nwtgck/self-signed-https "Get your own image badge on microbadger.com")
+
 Docker image which enables your site with self-signed HTTPS easily
+
+![Ghost Self-signed HTTPS Docker](demo_images/ghost.gif)
 
 ## Quick Start
 
