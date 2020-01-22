@@ -1,4 +1,4 @@
-FROM nginx:1.17.7-alpine
+FROM nginx:1.17.8-alpine
 
 LABEL maintainer="Ryo Ota <nwtgck@gmail.com>"
 
